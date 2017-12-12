@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     Parent.hasMany(models.Child, {
       onDelete: "cascade"
     });
-    Parent.hasMany(models.Tasks, {
+    Parent.hasMany(models.Task, {
       onDelete: "cascade"
     });
   };
