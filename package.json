@@ -24,6 +24,7 @@
     "handlebars": "^4.0.11",
     "inquirer": "^4.0.1",
     "mysql2": "^1.5.1",
+    "passport": "^0.4.0",
     "request": "^2.83.0",
     "sequelize": "^4.27.0"
   }
