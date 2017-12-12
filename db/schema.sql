@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS santasHelp_db;
-
 CREATE DATABASE santasHelp_db;
 
 USE santasHelp_db;
