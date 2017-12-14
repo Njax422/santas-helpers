@@ -1,3 +1,6 @@
+// Models are the objects which represent tables in a database. They are the heart of ORM and we can define them with sequelize.define.
+
+
 module.exports = function(sequelize, DataTypes) {
   var Child = sequelize.define("Child", {
     // Giving the Child model a name of type STRING
