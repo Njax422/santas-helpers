@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var sequelize = require("sequelize");
+
 //handles authentication
 var passport = require('passport');
 var session = require('express-session');
