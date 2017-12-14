@@ -25,11 +25,16 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Child.associate = function(models) {
-    // Associating Child with Posts
-    // When an Child is deleted, also delete any associated Posts
-    // Child.hasMany(models.Post, {
-    //   onDelete: "cascade"
-    // });
+    
+    Child.belongsTo(models.Parent);
+
+    Child.hasMany(models.Gift, {
+      onDelete: "cascade"
+    });// Associating Child with Posts
+    
+    Child.hasMany(models.Task, {
+      onDelete: "cascade"
+    });
   };
 
   return Child;

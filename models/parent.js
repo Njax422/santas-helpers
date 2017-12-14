@@ -13,8 +13,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         lens: [1]
-      },
-    email: DataTypes.STRING
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true
+      }
     }
   });
 
@@ -24,9 +29,7 @@ module.exports = function(sequelize, DataTypes) {
     Parent.hasMany(models.Child, {
       onDelete: "cascade"
     });
-    Parent.hasMany(models.Task, {
-      onDelete: "cascade"
-    });
+    
   };
 
   return Parent;

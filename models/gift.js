@@ -11,6 +11,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Gift.associate = function(models) {
+    Gift.belongsTo(models.Child);
+
     // Associating Gift with Posts
     // When an Gift is deleted, also delete any associated Posts
     // Gift.hasMany(models.Post, {
