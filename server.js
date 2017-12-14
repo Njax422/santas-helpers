@@ -23,6 +23,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 
+//passport testing
+app.get('/', function(req, res){
+  res.send('Welcome to Passport with Sequelize');
+});
+
 
 // Call these routes once the models route files are defined
 require("./routes/api-routes.js")(app);
