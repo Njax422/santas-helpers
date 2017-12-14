@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": "GDr152Yima7D0INH",
-    "database": "santasHelp_db",
+    "username": "helper",
+    "password": "helper",
+    "database": "santashelp_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
