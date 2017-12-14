@@ -1,7 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define("Task", {
     // Giving the Task model a name of type STRING
-    name: DataTypes.STRING
+    task: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    competed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   });
 
   Task.associate = function(models) {

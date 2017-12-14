@@ -1,7 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
   var Gift = sequelize.define("Gift", {
     // Giving the Gift model a name of type STRING
-    name: DataTypes.STRING
+    gift: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
   });
 
   Gift.associate = function(models) {
