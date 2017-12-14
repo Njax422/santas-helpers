@@ -4,15 +4,40 @@
 module.exports = function(sequelize, DataTypes) {
   var Child = sequelize.define("Child", {
     // Giving the Child model a name of type STRING
-    name: DataTypes.STRING
+    fname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        lens: [1]
+      } 
+    }, 
+    lname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        lens: [1]
+      }
+    },
+    //parent id
+    //access_token
+    //nice - boolean
+    nice: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   });
 
   Child.associate = function(models) {
-    // Associating Child with Posts
-    // When an Child is deleted, also delete any associated Posts
-    // Child.hasMany(models.Post, {
-    //   onDelete: "cascade"
-    // });
+    
+    Child.belongsTo(models.Parent);
+
+    Child.hasMany(models.Gift, {
+      onDelete: "cascade"
+    });// Associating Child with Posts
+    
+    Child.hasMany(models.Task, {
+      onDelete: "cascade"
+    });
   };
 
   return Child;
