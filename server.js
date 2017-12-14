@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var sequelize = require("sequelize");
+var passport = require("passport");
 
 
 var PORT = process.env.PORT || 8080;
