@@ -2,7 +2,7 @@
   "development": {
     "username": "helper",
     "password": "helper",
-    "database": "santa_db",
+    "database": "santashelp_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

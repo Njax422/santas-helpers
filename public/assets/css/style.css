@@ -1,0 +1,39 @@
+h1, h2 {
+font-family: 'Droid Sans', sans-serif;
+text-align: center;
+color: #2146b7;
+}
+
+h1 {
+font-size: 80px;	
+}
+
+
+
+body {
+	padding: 30px
+}
+
+.image2 {
+  float:right;
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+  margin-right: 100px;
+}
+
+/*.image3 {
+  float:right;
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+  margin-right: 100px;
+}*/
+
+
+
+/*.image1 {
+  float:left;
+   margin-left: 600px;
+}
+*/

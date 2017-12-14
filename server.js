@@ -2,6 +2,12 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var sequelize = require("sequelize");
 
+//handles authentication
+var passport = require('passport');
+var session = require('express-session');
+
+var env = require('dotenv').load();
+
 
 var PORT = process.env.PORT || 8080;
 var app = express();
@@ -22,6 +28,16 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
 app.use(express.static("public"));
+
+//For Passport
+app.use(session({secret: 'keyboard cat', resave: true, saveUninitialiazed:true})); //session secret
+app.use(passport.initialize());
+app.use(passport.session()); //persistent login sessions
+
+//passport testing
+app.get('/', function(req, res){
+  res.send('Welcome to Passport with Sequelize');
+});
 
 
 // Call these routes once the models route files are defined
