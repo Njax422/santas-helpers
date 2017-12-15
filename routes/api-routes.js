@@ -9,19 +9,16 @@ module.exports= function(app){
 	})
 
 	// post route for parent to create new task
-		//what info will they pass in (name/description/etc)
-		//upon submit generate token
-
-	// app.post("/parents", function(req, res) {
-	//     console.log(req.body);
-	//     db.Post.create({
-	//       title: req.body.title,
-	//       body: req.body.body,
-	//       category: req.body.category
- //    }).then(function(dbPost) {
- //      res.json(dbPost);
- //    });
- //  });
+	// 	what info will they pass in (name/description/etc)
+	// 	upon submit generate token
+	app.post("/parents", function(req, res) {
+	    db.Tasks.create({
+	      task_name: req.body.task_name,
+    }).then(function(dbPost) {
+    	console.log("/parents routing working");
+    	// res.json(dbPost);
+    });
+  });
 
 
 
