@@ -13,7 +13,8 @@ var PORT = process.env.PORT || 8080;
 var app = express();
 
 var db = require("./models");
-
+//Routes
+var authRoute = require ('./routes/auth.js')(app);
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -21,7 +22,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //For Handlebars
-app.set('views', './santas-helpers/views')
+app.set('views', './views')
 app.engine('hbs', exphbs({
   extname: '.hbs'
 }));
