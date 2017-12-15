@@ -1,7 +1,12 @@
 {
   "development": {
+<<<<<<< Updated upstream
     "username": "root",
     "password": "GDr152Yima7D0INH",
+=======
+    "username": "helper",
+    "password": "helper",
+>>>>>>> Stashed changes
     "database": "santasHelp_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
