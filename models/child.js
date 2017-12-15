@@ -18,6 +18,9 @@ module.exports = function(sequelize, DataTypes) {
         lens: [1]
       }
     },
+    age: {
+      type: DataTypes.INTEGER
+    },
     //parent id
     //access_token
     //nice - boolean
