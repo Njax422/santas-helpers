@@ -20,6 +20,12 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+//For Handlebars
+app.set('views', './santas-helpers/views')
+app.engine('hbs', exphbs({
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
