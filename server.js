@@ -12,22 +12,7 @@ var env = require('dotenv').load();
 var PORT = process.env.PORT || 8080;
 var app = express();
 
-var db = require("./models");
-//Routes
-var authRoute = require ('./routes/auth.js')(app);
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-//For Handlebars
-app.set('views', './views')
-app.engine('hbs', exphbs({
-  extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
-
+//For BodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
@@ -46,11 +31,36 @@ app.get('/', function(req, res){
   res.send('Welcome to Passport with Sequelize');
 });
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+//For Handlebars
+app.set('views', './views')
+app.engine('hbs', exphbs({
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
+
+//Models
+var db = require("./models");
+//Routes
+var authRoute = require ('./routes/auth.js')(app);
+
+//load passport strategies
+require('./config/passport/passport.js')(passport, db.user);
 
 // Call these routes once the models route files are defined
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
+// //sync Database (repeat of code below with a catch err)
+// db.sequelize.sync().then(function(){
+//   console.log('Nice! Database looks fine')
+// }).catch(function(err){
+//   console.log(err, 'Something went wrong with the Database update!')
+// });
 
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
