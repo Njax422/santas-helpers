@@ -1,6 +1,6 @@
 CREATE DATABASE santasHelp_db;
 
-USE santasHelp_db;
+USE santashelp_db;
 
 CREATE TABLE parents (
   id INT NOT NULL AUTO_INCREMENT,
