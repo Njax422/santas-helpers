@@ -17,3 +17,15 @@ function getchildInfo(){
 	for(var i=0;i<childInfoArray.length;i++) {
 		childInfoStr=childInfoStr+childInfoArray[i]+",";
 	}
+
+
+//------On click function to authenticate childs code on homepage--------
+var btn = document.querySelector('submitChildCode');
+
+function authenticateChildCode(childCode) {
+  	console.log("Insert code to authenticate child code here.")
+};
+
+btn.onclick = function() {
+	authenticateChildCode();
+};
