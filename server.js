@@ -12,7 +12,7 @@ var env = require('dotenv').load();
 var PORT = process.env.PORT || 8080;
 var app = express();
 
-var server = oauth2orize.createServer();
+// var server = oauth2orize.createServer();
 
 //For BodyParser
 app.use(bodyParser.json());
