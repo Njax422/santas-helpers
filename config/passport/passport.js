@@ -5,6 +5,7 @@ module.exports = function(passport, user){
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
   var BearerStrategy = require('passport-http-bearer').Strategy;
+  
 passport.use('local-signup', new LocalStrategy (
   {
     usernameField: 'email',
