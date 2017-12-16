@@ -37,13 +37,16 @@ module.exports= function(app){
  //  });
 
 	//get route for html that child sees upon login
-	app.get("/:id", function(req, res) {
-	    db.Tasks.findAll({
-	    	include: [db.Tasks]
-    	}).then(function(santasHelp_db) {
-      res.json(result);
-    });
-  });
+	// app.get("/:id", function(req, res) {
+	//     db.Tasks.findAll({
+	//     	include: [db.Tasks]
+  //   	}).then(function(santasHelp_db) {
+  //     res.json(result);
+  //   });
+  // });
+	//Michelle commented this section^ out 12/15 to
+	//keep moving forward with passport, was creating error
+	//cannot get findAll of undefined
 
 	//post route to handles adding gifts to wishlist
 	app.post("/createWishList", function(req, res) {
@@ -55,8 +58,6 @@ module.exports= function(app){
   });
 
 	//bonus: parent has delete and edit routes for tasks,
-	//bonus: child has delete and edit routes for wishlist gifts 
+	//bonus: child has delete and edit routes for wishlist gifts
 
 };
-
-

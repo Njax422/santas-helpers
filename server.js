@@ -12,6 +12,8 @@ var env = require('dotenv').load();
 var PORT = process.env.PORT || 8080;
 var app = express();
 
+var server = oauth2orize.createServer();
+
 //For BodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,14 +24,13 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("public"));
 
 //For Passport
-app.use(session({secret: 'keyboard cat', resave: true, saveUninitialiazed:true})); //session secret
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialiazed:true
+})); //session secret
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
-
-//passport testing
-app.get('/', function(req, res){
-  res.send('Welcome to Passport with Sequelize');
-});
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -43,10 +44,15 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
+//passport testing
+app.get('/', function (req, res){
+  res.send('Welcome to Passport with Sequelize');
+});
+
 //Models
 var db = require("./models");
 //Routes
-var authRoute = require ('./routes/auth.js')(app);
+var authRoute = require ('./routes/auth.js')(app, passport);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.user);
