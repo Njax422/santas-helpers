@@ -1,15 +1,15 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, Sequelize) {
   var Task = sequelize.define("Task", {
     // Giving the Task model a name of type STRING
     task: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
     competed: {
-      type: DataTypes.BOOLEAN,
+      type: Sequelize.BOOLEAN,
       defaultValue: false
     }
   });

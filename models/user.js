@@ -1,5 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
   var User = sequelize.define('user', {
+        //note lower case user is used because that is the way passport does it
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -37,5 +38,15 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: 'active'
     }
   });
+
+    User.associate = function(models) {
+    // Associating User with child
+    // When an User is deleted, also delete any associated Posts
+    User.hasMany(models.Child, {
+      onDelete: "cascade"
+    });
+    
+  };
+
   return User;
 }

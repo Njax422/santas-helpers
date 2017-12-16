@@ -1,8 +1,8 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, Sequelize) {
   var Gift = sequelize.define("Gift", {
     // Giving the Gift model a name of type STRING
     gift: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         len: [1]
