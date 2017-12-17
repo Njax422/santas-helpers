@@ -61,15 +61,22 @@ require('./config/passport/passport.js')(passport, db.user);
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-// //sync Database (repeat of code below with a catch err)
-// db.sequelize.sync().then(function(){
-//   console.log('Nice! Database looks fine')
-// }).catch(function(err){
-//   console.log(err, 'Something went wrong with the Database update!')
-// });
-
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+//sync Database (repeat of code below with a catch err)
+db.sequelize.sync().then(function(){
+  console.log('Nice! Database looks fine')
+}).catch(function(err){
+  console.log(err, 'Something went wrong with the Database update!')
 });
+
+app.listen(PORT, function(err) {
+
+    if (!err)
+        console.log("App listening on PORT" + PORT);
+    else console.log(err)
+
+});
+// db.sequelize.sync({ force: false }).then(function() {
+//   app.listen(PORT, function() {
+//     console.log("App listening on PORT " + PORT);
+//   });
+// });
