@@ -1,26 +1,27 @@
+//Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
 var sequelize = require("sequelize");
+var db = require("./models");
+var authRoute = require ('./routes/auth.js')(app, passport);
 
-//handles authentication
+//Authentication dependencies
 var passport = require('passport');
 var session = require('express-session');
 
 var env = require('dotenv').load();
-
 var PORT = process.env.PORT || 8080;
 var app = express();
 
 // var server = oauth2orize.createServer();
+
+app.use(express.static("public"));
 
 //For BodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-
-app.use(express.static("public"));
 
 //For Passport
 app.use(session({
@@ -43,17 +44,12 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
-//passport testing
+//Passport testing
 app.get('/', function (req, res){
   res.send('Welcome to Passport with Sequelize');
 });
 
-//Models
-var db = require("./models");
-//Routes
-var authRoute = require ('./routes/auth.js')(app, passport);
-
-//load passport strategies
+//Load passport strategies
 require('./config/passport/passport.js')(passport, db.user);
 
 // Call these routes once the models route files are defined
