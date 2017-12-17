@@ -3,7 +3,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var sequelize = require("sequelize");
 var db = require("./models");
-var authRoute = require ('./routes/auth.js')(app, passport);
 
 //Authentication dependencies
 var passport = require('passport');
@@ -48,6 +47,12 @@ app.set('view engine', '.hbs');
 app.get('/', function (req, res){
   res.send('Welcome to Passport with Sequelize');
 });
+
+//models
+var db = require("./models");
+//routes
+var authRoute = require ('./routes/auth.js')(app, passport);
+
 
 //Load passport strategies
 require('./config/passport/passport.js')(passport, db.user);
