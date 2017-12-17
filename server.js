@@ -68,6 +68,17 @@ db.sequelize.sync().then(function(){
   console.log(err, 'Something went wrong with the Database update!')
 });
 
+app.listen(PORT, function(err) {
+
+    if (!err)
+        console.log("App listening on PORT" + PORT);
+    else console.log(err)
+
+});
+// db.sequelize.sync({ force: false }).then(function() {
+=======
+});
+
 // db.sequelize.sync({ force: true }).then(function() {
 //   app.listen(PORT, function() {
 //     console.log("App listening on PORT " + PORT);
