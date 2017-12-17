@@ -8,7 +8,6 @@ var session = require('express-session');
 
 var env = require('dotenv').load();
 
-
 var PORT = process.env.PORT || 8080;
 var app = express();
 
@@ -75,6 +74,8 @@ app.listen(PORT, function(err) {
     else console.log(err)
 });
 
+//This function can probably be deleted if not used by end of project. The above function should handle same functionality, this was just another way to do it. 
+//------------------------------------------------------------
 // db.sequelize.sync({ force: true }).then(function() {
 //   app.listen(PORT, function() {
 //     console.log("App listening on PORT " + PORT);
