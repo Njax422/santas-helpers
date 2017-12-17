@@ -75,7 +75,7 @@ app.listen(PORT, function(err) {
     else console.log(err)
 
 });
--// db.sequelize.sync({ force: false }).then(function() {
+// db.sequelize.sync({ force: false }).then(function() {
 //-=======
 //-});
 

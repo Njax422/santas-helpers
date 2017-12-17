@@ -12,26 +12,47 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body style="background: url(https://s-media-cache-ak0.pinimg.com/originals/b1/20/0e/b1200e864b641bef08815dd9305330bd.gif);">
-  <div class="container2">
-    <div class="form-group">
-    <div class = "col-sm-8">
-      <h3>Parent Login</h3>
+<body>
 
+  <div class="container">
+
+    <h1><strong>&#10052;Santa's Helpers&#10052;</strong></h1>
+
+    <div class="form-group">
+    <div class="row">
+        <div class = "col-sm-8 offset-md-2">
+          <h3>Signup</h3>
+          <form id="signup" name="signup" method="post" action="/signup">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input placeholder='Email' class="text form-control" name="email" type="email" />
+            </div>
+            <div class="form-group">
+              <label for="firstname">First name</label>
+              <input placeholder='First name' class="form-control" name="firstname" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last name</label>
+              <input placeholder="Last name" class="form-control" name="lastname" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input placeholder='Password' class="form-control" name="password" type="password" />
+            </div>
+            <div class="form-group">
+              <input class="btn btn-primary" type="submit" value="Sign Up" />
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    </div>
+    <img src="./assets/images/elf.png" alt="elf" class= image3>
   </div>
-  <form id="signup" name="signup" method="post" action="/signup">
-      <label for="email">Email Address</label>
-      <input class="text" name="email" type="email" />
-      <label for="firstname">Firstname</label>
-      <input name="firstname" type="text" />
-      <label for="lastname">Lastname</label>
-      <input name="lastname" type="text" />
-      <label for="password">Password</label>
-      <input name="password" type="password" />
-      <input class="btn" type="submit" value="Sign Up" />
-  </form>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
