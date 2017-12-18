@@ -36,33 +36,16 @@ module.exports = function(sequelize, Sequelize) {
     status: {
       type:Sequelize.ENUM('active', 'inactive'),
       defaultValue: 'active'
-    },
-    // Adding child
-      child_1_fname: {
-      type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: "Please Update Child's first name",
-      validate: {
-        len: [1]
-      } 
-    }, 
-    child_1_nice: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false
     }
   });
 
-//associations
-
     User.associate = function(models) {
-    
-    User.hasMany(models.Gift, {
-      onDelete: "cascade"
-    });// Associating User with Posts
-    
-    User.hasMany(models.Task, {
+    // Associating User with child
+    // When an User is deleted, also delete any associated Posts
+    User.hasMany(models.Child, {
       onDelete: "cascade"
     });
+    
   };
 
   return User;
