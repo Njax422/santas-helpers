@@ -55,6 +55,18 @@ html {
   border-color:#2146b7;
   background-color:
 }
+ #delete {
+        cursor:pointer;
+        float:right;
+        color:red;
+        font-weight: bold;
+      }
+
+
+
+
+
+
 /* .container {
   float:right;
 } */
