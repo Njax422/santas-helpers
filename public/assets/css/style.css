@@ -8,6 +8,10 @@ h1 {
 font-size: 80px;
 }
 
+.red {
+  color: red;
+}
+
 body {
   /* padding: 30px; m commented out*/
   background-size: contain;
