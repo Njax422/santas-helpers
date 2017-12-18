@@ -75,6 +75,10 @@ app.listen(PORT, function(err) {
     else console.log(err)
 });
 
+  app.get("/dashboard/tasks", function(req, res){
+    res.render("index");
+  });
+
 //This function can probably be deleted if not used by end of project. The above function should handle same functionality, this was just another way to do it. 
 //------------------------------------------------------------
 // db.sequelize.sync({ force: true }).then(function() {

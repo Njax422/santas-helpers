@@ -2,29 +2,33 @@ var db = require("../models");
 
 module.exports= function(app){
 
-	// post route for parent to create new task
-	// 	what info will they pass in (name/description/etc)
-	// 	upon submit generate token
-	app.post("/parents", function(req, res) {
-	    db.Tasks.create({
-	      task_name: req.body.task_name,
-    }).then(function(dbPost) {
-    	console.log("/parents routing working");
-    	res.json(result);
-    });
-  });
+
+	// POST route for parent to create new task
+	// app.post("/dashboard", function(req, res){
+	//     db.Task.create({
+	//       task_name: req.body.task_name,
+	// //****Change below key to completed once typo in model is fixed******
+	//       competed: FALSE
+ //    }).then(function(results) {
+ //    	res.json(results);
+ //    	});
+	// });
 
 
-//get route where parent can view all tasks and completed yes/no
-	//possibly two different routes for completed or not
-	//bonus: bonus checklists if completed by due date
-	app.get("/parents", function(req, res) {
-	    db.Tasks.findAll({
-	    	include: [db.Tasks]
-    	}).then(function(santasHelp_db) {
-      res.json(result);
+	//GET route where parent can view all tasks and completed yes/no
+		//possibly two different routes for completed or not
+	//Eventually this will be just "/dashboard" but I'm using "/dashboard/tasks" for testing
+	app.get("/dashboard/tasks", function(req, res){
+	    db.Task.findAll({
+	    	where: {
+	    		//********Once we have data in the db, replace 1 with variable of user ID********
+    			id: 1
+  			}
+		}).then(function(results){
+      		res.render("dashboard");
+    	});
     });
-  });
+
 
 
 	// get(?) route to fire html link to enter magic link
@@ -49,13 +53,13 @@ module.exports= function(app){
 	//cannot get findAll of undefined
 
 	//post route to handles adding gifts to wishlist
-	app.post("/createWishList", function(req, res) {
-	    db.Gifts.create({
-	      Gift: req.body.gift_name,
-    }).then(function(dbPost) {
-    	res.json(result);
-    });
-  });
+	// app.post("/createWishList", function(req, res) {
+	//     db.Gifts.create({
+	//       Gift: req.body.gift_name,
+ //    }).then(function(dbPost) {
+ //    	res.json(result);
+ //    });
+ //  });
 
 	//bonus: parent has delete and edit routes for tasks,
 	//bonus: child has delete and edit routes for wishlist gifts
