@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center" id="top-section">
+			<img src="/assets/img/#" alt="#"/>
+
+				<h1 class='red'>Santa's Helper Tasks to Complete</h1>
+		</div>
+
+		<div class="col-xs-6 text-center" class="task">
+			<div class="row">
+				<h2 class="title">Tasks to Complete</h2>
+				{{#each tasks}}
+				{{#unless completed}}
+					<div class="text-center">
+
+						{{this.task_name}}
+            {{this.task}}
+						<form method='POST' action='/api/burgers/update?_method=PUT' class='button-size'>
+							<input input type='hidden' type='text' name='id' value={{this.id}}><br>
+							<button class="addtltext" type='submit'class='btn btn-default'>Complete task with button Press!</button>
+						</form>
+					</div>
+				{{/unless}}
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="col-xs-6 text-center" class="task">
+			<h2 class="title">Tasks Completed</h2>
+
+				{{#each tasks}}
+					{{#if completed}}
+						<input class='form-control text-center' type='text' placeholder='{{this.task_name}}' readonly>
+					{{/if}}
+				{{/each}}
+		</div>
+	</div>
+</div>
