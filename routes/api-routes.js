@@ -1,16 +1,16 @@
 var db = require("../models");
-
 module.exports= function(app){
 
 	// post route for parent to create new task
 	// 	what info will they pass in (name/description/etc)
 	// 	upon submit generate token
-	app.post("/parents", function(req, res) {
-	    db.Tasks.create({
-	      task_name: req.body.task_name,
-    }).then(function(dbPost) {
-    	console.log("/parents routing working");
-    	res.json(result);
+	app.post("/child", function(req, res) {
+			db.Task.create({
+	      task: req.body.task,
+    }).then(function(result) {
+    	console.log("/parents routing working", result);
+
+  	res.render('child.handlebars', {task: result.dataValues.task});
     });
   });
 
@@ -18,13 +18,13 @@ module.exports= function(app){
 //get route where parent can view all tasks and completed yes/no
 	//possibly two different routes for completed or not
 	//bonus: bonus checklists if completed by due date
-	app.get("/parents", function(req, res) {
-	    db.Tasks.findAll({
-	    	include: [db.Tasks]
-    	}).then(function(santasHelp_db) {
-      res.json(result);
-    });
-  });
+	// app.get("/parents", function(req, res) {
+	//     db.Tasks.findAll({
+	//     	include: [db.Tasks]
+  //   	}).then(function(result) {
+  //     res.render('file', result);
+  //   });
+  // });
 
 
 	// get(?) route to fire html link to enter magic link

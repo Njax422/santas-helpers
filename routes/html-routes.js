@@ -6,16 +6,20 @@ var path = require("path");
 module.exports= function(app){
   //home page (child)
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "INSERT HTML FILE PATH HERE"));
+    res.render('index.handlebars');
   });
 
   //parent login
-  app.get("/parents", function(req, res) {
-    res.sendFile(path.join(__dirname, "INSERT HTML FILE PATH HERE"));
-  });
+  // app.get("/parents", function(req, res) {
+  //   res.render(path.join(__dirname, "INSERT HTML FILE PATH HERE"));
+  // });
 
   //lets child view their wish list
-  app.get("/mywishlist", function(req, res) {
-    res.sendFile(path.join(__dirname, "INSERT HTML FILE PATH HERE"));
+  // app.get("/mywishlist", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "INSERT HTML FILE PATH HERE"));
+  // });
+
+  app.get('/child', function(req, res) {
+    res.render('child.handlebars');
   });
 };
