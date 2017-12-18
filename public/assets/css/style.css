@@ -5,22 +5,28 @@ color: #2146b7;
 }
 
 h1 {
-font-size: 80px;	
+font-size: 80px;
 }
 
 body {
-  padding: 30px;
+  /* padding: 30px; m commented out*/
   background-size: contain;
   background: url(https://s-media-cache-ak0.pinimg.com/originals/b1/20/0e/b1200e864b641bef08815dd9305330bd.gif);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 100% ;
+  background-position-y: -467px; /*m added*/
   /*background-color: red;*/
 
 }
 html {
   height: 100%;
+}
+
+.navdropdown {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .image2 {
@@ -32,6 +38,9 @@ html {
 }
 
 .image3 {
+  position: fixed;
+  bottom:10px;
+  right:10px;
   float:left;
   width: 300px;
   height: auto;
@@ -45,8 +54,19 @@ html {
   width:40%;
   border-color:#2146b7;
   background-color:
-} 
-.container {
-  float:right;
 }
+ #delete {
+        cursor:pointer;
+        float:right;
+        color:red;
+        font-weight: bold;
+      }
 
+
+
+
+
+
+/* .container {
+  float:right;
+} */
