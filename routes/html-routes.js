@@ -4,7 +4,7 @@ console.log("HTML Routes working");
 var path = require("path");
 
 module.exports= function(app){
-  //home page (child)
+  //home page 
   app.get("/", function(req, res) {
     res.render('index.handlebars');
   });
