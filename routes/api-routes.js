@@ -4,13 +4,13 @@ module.exports= function(app){
 	// post route for parent to create new task
 	// 	what info will they pass in (name/description/etc)
 	// 	upon submit generate token
-	app.post("/parents", function(req, res) {
-			console.log('req body: ', req.body);
-	    db.Task.create({
+	app.post("/child", function(req, res) {
+			db.Task.create({
 	      task: req.body.task,
     }).then(function(result) {
     	console.log("/parents routing working", result);
-    	res.render('child.handlebars', {task: result.dataValues.task});
+
+  	res.render('child.handlebars', {task: result.dataValues.task});
     });
   });
 
