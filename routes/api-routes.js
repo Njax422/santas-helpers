@@ -1,13 +1,37 @@
 var db = require("../models");
 module.exports= function(app){
 
+	//Populates data to the parent dashboard upon logging in, based on userId
+	app.get("/dashboard", function(req, res) {
+			var data = {};
+			db.Task.findAll({
+				where: {
+	    		//********Once we have data in the db, replace with variable of user ID********
+    			userId: 1
+  			}
+			}).then(function(tasks) {
+				data.task=tasks;
+			db.Gift.findAll({
+				where: {
+	    		//********Once we have data in the db, replace with variable of user ID********
+    			userId: 1
+  			}
+			}).then(function(gifts) {
+				data.gift=gifts;
+			res.render('dashboard.handlebars', data);
+				// console.log(data);
+			})
+   		 });
+ 	 });
+
+
 	// Creates new task and redirected to /tasklist for updating list
 	app.post("/child", function(req, res) {
 			db.Task.create({
-	      task: req.body.task
+	      task: req.body.task,
+	      userId: 1
     }).then(function(result) {
     	res.redirect("/tasklist");
-  	// res.render('dashboard.handlebars', {task: result.dataValues.task});
     	});
   	});
 
@@ -15,9 +39,19 @@ module.exports= function(app){
 	//After parent creates a new task, GET all tasks and wishes. 
 	app.get("/tasklist", function(req, res) {
 			var data = {};
-			db.Task.findAll({}).then(function(tasks) {
+			db.Task.findAll({
+				where: {
+	    		//********Once we have data in the db, replace with variable of user ID********
+    			userId: 1
+  			}
+			}).then(function(tasks) {
 				data.task=tasks;
-			db.Gift.findAll({}).then(function(gifts) {
+			db.Gift.findAll({
+				where: {
+	    		//********Once we have data in the db, replace with variable of user ID********
+    			userId: 1
+  			}
+			}).then(function(gifts) {
 				data.gift=gifts;
 			res.render('dashboard.handlebars', data);
 				// console.log(data);

@@ -49,50 +49,44 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-6">
         <br>
-
         <div class="panel panel-primary">
           <div class="panel-heading" style="background-color: #04a8f4">
-            <h3 class="panel-title"><strong>Information for Santa</strong></h3>
+            <h3 class="panel-title"><strong>What does your child need to do in order to stay on Santa's Nice list?</strong></h3>
           </div>
           <div class="panel-body">
-
-            <!-- Here we create an HTML Form for handling the inputs about the child -->
+            <!-- Form to add tasks -->
             <form method='post' action='/child'>
-
-
-              <div class="form-group">
-                <label for="search">What is your child's first name?</label>
-                <input type="text" class="form-control" name='firstName' id="child-name">
-              </div>
-
-              <div class="form-group">
-                <label for="search">How old is your child?</label>
-                <input type="text" class="form-control" name='age' id="child-age">
-              </div>
-
-              <!-- Here the parent enters the task for the child-->
               <div class="form-group">
                 <label for="start-year">Enter Task:</label>
                 <input type="text" class="form-control" name='task' id="child-taksr">
               </div>
-
-              <!-- Here the  parent enters a gift from the child's wishlist -->
-              <div class="form-group">
-                <label for="end-year">Enter Gift from Wishlist:</label>
-                <input type="text" class="form-control" name='gift' id="child-gift">
-              </div>
-
-
-              <button class="btn btn-secondary" type="submit">Submit</button>
-
-
+              <button class="btn btn-secondary" type="submit">Add Task</button>
             </form>
           </div>
         </div>
       </div>
+
+    <div class="col-sm-1">
     </div>
+
+    <div class="col-sm-4">
+      <!-- Wishlist Panel-->
+      <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: #04a8f4">
+          <h3 class="panel-title"><strong>Child's Wish List</strong></h3>
+            {{#each gift}}
+            {{!-- add buttons to mark completed--}}    
+            <div>
+              <p>{{this.dataValues.gift}}
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+
    <a class="btn btn-primary btn-lg" href="/child" role="button">Navigate to Child's page</a>
 
     <div class="row">
@@ -101,26 +95,16 @@
 
         <div class="panel panel-primary">
 
-          <!-- Panel Heading for Santa's Message -->
+          <!-- Task Management Panel-->
           <div class="panel-heading" style="background-color: #04a8f4">
             <h3 class="panel-title"><strong>Task Management</strong></h3>
             {{#each task}}
+            <!-- add delete and edit button  -->
               <div>
                 <p>{{this.dataValues.task}}
               </div>
             {{/each}}
           </div>
-
-          <div class="panel-heading" style="background-color: #04a8f4">
-            <h3 class="panel-title"><strong>Wish List you'll never get</strong></h3>
-            {{#each gift}}
-              <div>
-                <p>{{this.dataValues.gift}}
-              </div>
-            {{/each}}
-          </div>
-
-
 
           <!-- This main panel will hold the message from Santa-->
           <div class="panel-body" id="santa-section">
