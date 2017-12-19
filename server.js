@@ -34,20 +34,12 @@ app.use(passport.session()); //persistent login sessions
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //For Handlebars
 app.set('views', './views')
-app.engine('hbs', exphbs({
-  extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
 
-//passport testing
-app.get('/', function (req, res){
-  res.send('Welcome to Passport with Sequelize');
-});
 
 //Models
 var db = require("./models");
