@@ -64,28 +64,19 @@
       </div>
     </div>
 
-    <div class="col-sm-1">
+    <div class="col-sm-2">
     </div>
 
-    <div class="col-sm-4">
-      <!-- Wishlist Panel-->
-      <div class="panel panel-primary">
-        <div class="panel-heading" style="background-color: #04a8f4">
-          <h3 class="panel-title"><strong>Child's Wish List</strong></h3>
-            {{#each gift}}
-            <div>
-              <p>{{this.dataValues.gift}}
-            </div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
+    <div class="btn-group col-sm-4" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">Naughty</button>
+      <button type="button" class="btn btn-default">Nice</button>
     </div>
+  </div>
+
+<br><br>
 
   <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-      <br>
+    <div class="col-sm-7">
       <div class="panel panel-primary">
         <!-- Task Management Panel-->
         <div class="panel-heading" style="background-color: #04a8f4">
@@ -102,7 +93,22 @@
     </div>
   </div>
 
-  <div class="col-sm-2"></div>
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-4">
+  <!-- Wishlist Panel-->
+  <div class="panel panel-primary">
+    <div class="panel-heading" style="background-color: #04a8f4">
+      <h3 class="panel-title"><strong>Child's Wish List</strong></h3>
+        {{#each gift}}
+        <div>
+          <p>{{this.dataValues.gift}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="row">
     <div class="col-sm-4"></div>
