@@ -11,6 +11,9 @@ module.exports = function(sequelize, Sequelize) {
     completed: {
       type: Sequelize.BOOLEAN,
       defaultValue: false
+    },
+    userId: {
+      type: Sequelize.INTEGER,
     }
   });
 
