@@ -6,10 +6,21 @@
 				<h1 class='red'>Santa's Helper Tasks to Complete</h1>
 		</div>
 		<div class="col-xs-6 text-center" class="task">
+
+			<div>
+				<!-- Child creates their wishlist -->
+				<form method='post' action='/wishlist'>
+	              <div class="form-group">
+	                <label for="end-year">What's on your wish list?</label>
+	                <input type="text" class="form-control" name='gift' id="child-gift">
+	              </div>
+	              <button class="btn btn-secondary" type="submit">Submit</button>
+	            </form>
+			</div>
 			<div class="row">
 				<h2 class="title">Tasks to Complete</h2>
         {{task}}
-				{{#each tasks}}
+				{{#each task}}
 				{{#unless completed}}
 					<div class="text-center">
 

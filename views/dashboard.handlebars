@@ -103,7 +103,21 @@
 
           <!-- Panel Heading for Santa's Message -->
           <div class="panel-heading" style="background-color: #04a8f4">
-            <h3 class="panel-title"><strong> Santa's message</strong></h3>
+            <h3 class="panel-title"><strong>Task Management</strong></h3>
+            {{#each task}}
+              <div>
+                <p>{{this.dataValues.task}}
+              </div>
+            {{/each}}
+          </div>
+
+          <div class="panel-heading" style="background-color: #04a8f4">
+            <h3 class="panel-title"><strong>Wish List you'll never get</strong></h3>
+            {{#each gift}}
+              <div>
+                <p>{{this.dataValues.gift}}
+              </div>
+            {{/each}}
           </div>
 
 
