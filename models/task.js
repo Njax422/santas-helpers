@@ -8,7 +8,7 @@ module.exports = function(sequelize, Sequelize) {
         len: [1]
       }
     },
-    competed: {
+    completed: {
       type: Sequelize.BOOLEAN,
       defaultValue: false
     }
