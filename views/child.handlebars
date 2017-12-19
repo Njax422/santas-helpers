@@ -4,6 +4,19 @@
 			<img src="/assets/img/#" alt="#"/>
 			<h2 class='red'>Santa's Little Helper</h2>
 		</div>
+<<<<<<< HEAD
+		<div class="col-xs-6 text-center" class="task">
+			<div class="row">
+				<h2 class="title">Tasks to Complete</h2>
+        {{task}} <!--this is the task that works to display from db-->
+				{{#each task}} <!--from here down doesn't work yet bc taken from burger app, removed s-->
+				{{#unless completed}}
+					<div class="text-center">
+            <!--I will delete these two handlebar curly braces below, bc not working-->
+						{{this.task_name}}
+            {{this.task}}
+            <!--This is code transferred from burger app that still needs to be adjusted to our app-->
+=======
 	</div>
 	<br><br><br><br><br><br>
 	<div class="row">
@@ -54,6 +67,7 @@
 						<div class="text-center">
 						{{this.task_name}}
 			        	{{this.task}}
+>>>>>>> 5d83ca915281a5625020084ef41a3242e7439dcd
 						<form method='POST' action='/api/burgers/update?_method=PUT' class='button-size'>
 							<input input type='hidden' type='text' name='id' value={{this.id}}><br>
 							<button class="addtltext" type='submit'class='btn btn-default'>Complete task with button Press!</button>
@@ -64,6 +78,16 @@
 			</div>
 		</div>
 
+<<<<<<< HEAD
+		<div class="col-xs-6 text-center" class="task">
+			<h2 class="title">Tasks Completed</h2>
+
+				{{#each task}}<!--removed the s-->
+					{{#if completed}}
+						<input class='form-control text-center' type='text' placeholder='{{this.task_name}}' readonly><!--If have time can make this deletable or able to uncheck-->
+					{{/if}}
+				{{/each}}
+=======
 		<div class="col-sm-2"></div>
 		
 		<div class="col-sm-5">
@@ -74,6 +98,7 @@
 					<input class='form-control text-center' type='text' placeholder='{{this.task_name}}' readonly>
 				{{/if}}
 			{{/each}}
+>>>>>>> 5d83ca915281a5625020084ef41a3242e7439dcd
 		</div>
 	</div>
 </div>
