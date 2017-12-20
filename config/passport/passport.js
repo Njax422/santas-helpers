@@ -5,7 +5,7 @@ module.exports = function(passport, user){
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
   var BearerStrategy = require('passport-http-bearer').Strategy;
-  
+
 passport.use('local-signup', new LocalStrategy (
   {
     usernameField: 'email',
@@ -35,7 +35,8 @@ passport.use('local-signup', new LocalStrategy (
           email: email,
           password: userPassword,
           firstname: req.body.firstname,
-          lastname: req.body.lastname
+          lastname: req.body.lastname,
+          child_1_fname: req.body.child_1_fname
         };
 
         User.create(data).then(function(newUser, created){
