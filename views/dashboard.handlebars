@@ -1,51 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Parent Dashboard</title>
-  <!-- Bootswatch Styling for Improving the Aesthetics -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
-  <!--My Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    .panel-body a {
-      word-break: break-all;
-    }
-  </style>
-</head>
-<!-- <body style="background-color: #0d720d"> -->
-<body style="background:url(http://moziru.com/images/snowfall-clipart-transparent-8.png);">
-    <!-- <button class="btn btn-primary">Logout</button> -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="container navdropdown">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Santa's Helper <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/logout">Logout</a></li>
-           
-       
-          </ul>
-        </li>
-      </div>
-    </div>
-  </nav>
-
+<body>
+<div id="parentbackground">
   <div class="container">
-{{!--     <!-- Jumbotron for Title -->
-  <div class="jumbotron" style="background-color: #04a8f4 ; color: white;">
-    <h1 class="text-center"><strong>🎅 Parent Dashboard 🎅</strong></h1>
+    <div class="row">
+      <div class="col-xs-4"></div>
+      <div class="col-xs-8 text-center" id="top-section">
+      <h1 class="dashboard">Welcome Parents</h1>
+    </div>
   </div>
- --}}
-   <div class="page-header">
-    <h1 class="text-center"><strong>🎅 Santa's Helpers </strong></h1>
-    <h3><strong>Welcome Parents</strong></h3>
-  </div>
-
-  <div class="row">
+  <nav>
+    <div class="container">
+        <div class=row>
+            <div class="col-lg-4">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/logout">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+   <div class="row">
     <div class="col-sm-6">
       <div class="panel panel-primary">
-        <div class="panel-heading" style="background-color: #04a8f4">
+        <div class="panel-heading" style="background-color:#1E1E33">
           <h3 class="panel-title"><strong>What does your child need to do in order to stay on Santa's Nice list?</strong></h3>
         </div>
         <div class="panel-body">
@@ -64,20 +41,21 @@
     <div class="col-sm-2">
     </div>
       <div class="btn-group col-sm-4" role="group" aria-label="...">
-      <p>Indicate which list your child shoud appear on...Naughty or Nice!</p>
-      <button type="button" class="btn btn-sucess">Naughty</button>
-      <button type="button" class="btn btn-danger">Nice</button>
+      <h3><strong>Has your child been Naughty or Nice?</strong>
+      </h3>
+      <button type="button" class="btn btn-primary btn-lg" style= "background-color:#325B32; border:3px solid #325B32">Nice</button>
+      <button type="button" class="btn btn-primary btn-lg" style= "background-color:#A62325; border:3px solid #A62325">Naughty</button>
     </div>
 
 <br><br>
 
   <div class="row">
     <div class="col-sm-7">
-      <div class="panel panel-primary">
+      <div class="panel panel-primary" style="background-color: #1E1E33">
         <!-- Task Management Panel-->
-        <div class="panel-heading" style="background-color: #04a8f4">
+        <div class="panel-heading" style="background-color:#1E1E33; border:3px solid #1E1E33">
           <h3 class="panel-title"><strong>Task Management</strong></h3>
-        <div class="panel-body" id="santa-section">
+        <div class="panel-body" id="santa-section"style="background-color:#1E1E33; border:3px solid #1E1E33">
           {{#each task}}
           <!-- add delete and edit button  -->
             <div>
@@ -94,7 +72,7 @@
   <div class="col-sm-4">
   <!-- Wishlist Panel-->
   <div class="panel panel-primary">
-    <div class="panel-heading" style="background-color: #04a8f4">
+    <div class="panel-heading" style="background-color: #1E1E33; border:3px solid #1E1E33">
       <h3 class="panel-title"><strong>Child's Wish List</strong></h3>
         {{#each gift}}
         <div>
@@ -106,12 +84,13 @@
   </div>
 </div>
 
+<br><br><br>
   <div class="row">
     <div class="col-sm-4"></div>
-      <a class="btn btn-primary btn-lg col-sm-4" href="/child" role="button">Navigate to Child's page</a>
+      <a class="btn btn-primary btn-lg col-sm-4" href="/child" role="button" style="background-color: #210808; border:3px solid #210808">Navigate to Child's page</a>
     </div>
   </div>
-  <br><br><br>
+  <br><br><br><br><br><br>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
