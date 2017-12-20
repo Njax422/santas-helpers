@@ -14,7 +14,7 @@ module.exports = function(app, passport){
     ));
 
     //Commented this because it was breaking api-routes, didn't notice a change in functionality once commented out
-    //app.get('/dashboard',isLoggedIn, authController.dashboard);
+    // app.get('/dashboard',isLoggedIn, authController.dashboard); //uncommented to check authentication to /dashboard
 
     app.get('/logout', authController.logout);
 
@@ -28,7 +28,7 @@ module.exports = function(app, passport){
     function isLoggedIn(req, res, next) {
       if (req.isAuthenticated())
         return next();
-      res.redirect('/signin');
+      res.redirect('/'); //changed from signin to "/" so that when authentication above uncommented, redirects to welcome pg
     }
 
     app.get('/profile',
