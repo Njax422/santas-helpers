@@ -20,15 +20,11 @@
     <div class="container-fluid">
       <div class="container navdropdown">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Santa's Helper <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/logout">Logout</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+           
+       
           </ul>
         </li>
       </div>
@@ -41,8 +37,9 @@
     <h1 class="text-center"><strong>🎅 Parent Dashboard 🎅</strong></h1>
   </div>
  --}}
-  <div class="page-header">
-    <h2 class="text-center">Santa's Helpers <small>Welcome Parents</small></h2>
+   <div class="page-header">
+    <h1 class="text-center"><strong>🎅 Santa's Helpers </strong></h1>
+    <h3><strong>Welcome Parents</strong></h3>
   </div>
 
   <div class="row">
@@ -55,8 +52,8 @@
           <!-- Form to add tasks -->
           <form method='post' action='/child'>
             <div class="form-group">
-              <label for="start-year">Enter Task:</label>
-              <input type="text" class="form-control" name='task' id="child-taksr">
+              <label>Enter Task:</label>
+              <input type="text" class="form-control" name='task' id="new-task">
             </div>
             <button class="btn btn-secondary" type="submit">Add Task</button>
           </form>
@@ -66,12 +63,11 @@
 
     <div class="col-sm-2">
     </div>
-
-    <div class="btn-group col-sm-4" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">Naughty</button>
-      <button type="button" class="btn btn-default">Nice</button>
+      <div class="btn-group col-sm-4" role="group" aria-label="...">
+      <p>Indicate which list your child shoud appear on...Naughty or Nice!</p>
+      <button type="button" class="btn btn-sucess">Naughty</button>
+      <button type="button" class="btn btn-danger">Nice</button>
     </div>
-  </div>
 
 <br><br>
 
