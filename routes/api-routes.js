@@ -1,18 +1,26 @@
 var db = require("../models");
+
+//Requires authentication to navigate dashboards
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+  res.redirect('/signin');
+}
+
 module.exports= function(app){
 
 	// Creates new task and redirected to /tasklist for updating list
-	app.post("/child", function(req, res) {
+	app.post("/child", isLoggedIn, function(req, res) {
 		db.Task.create({
 	     	task: req.body.task,
-	      	userId: 1 //replace with variable of user ID
+	      	userId: req.user.id
     	}).then(function(result) {
     		res.redirect("/dashboard");
     	});
   	});
 
   	//Creates new gift in wishlist
-	app.post("/wishlist", function(req, res){
+	app.post("/wishlist", isLoggedIn,function(req, res){
 		db.Gift.create({
 			gift: req.body.gift,
 			userId: 1 //replace with variable of user ID
@@ -23,16 +31,17 @@ module.exports= function(app){
   });
 
 	//Upon logging in, will display all wishes and lists associated with parent
-	app.get('/dashboard', function(req,res){
+	app.get('/dashboard', isLoggedIn, function(req,res){
+		console.log(req.user.id);
 		Promise.all([
 			db.Task.findAll({
 				where: {
-				userId: 1//res.user.ID //replace with variable of user ID
+				userId: req.user.id
 				}
 			}),
 			db.Gift.findAll({
 				where: {
-					userId: 1//res.user.ID
+					userId: req.user.id
 				}
 			})
 		]).then(function(data){
@@ -48,7 +57,7 @@ module.exports= function(app){
 	})
 
 	//Upon reaching the child page, will display all wishes and lists associated with child
-	app.get('/child',function(req,res){
+	app.get('/child', isLoggedIn, function(req,res){
 		Promise.all([
 			db.Task.findAll({
 				where: {
