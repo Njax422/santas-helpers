@@ -1,6 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
   var User = sequelize.define('user', {
-        //note lower case user is used because that is the way passport does it
+  //note lower case user is used because that is the way passport does it
     id: {
       autoIncrement: true,
       primaryKey: true,

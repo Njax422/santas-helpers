@@ -39,11 +39,10 @@
  --}}
    <div class="page-header">
     <h1 class="text-center"><strong>🎅 Santa's Helpers </strong></h1>
-    <h3><strong>Welcome Parents</strong></h3>
   </div>
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-7">
       <div class="panel panel-primary">
         <div class="panel-heading" style="background-color: #04a8f4">
           <h3 class="panel-title"><strong>What does your child need to do in order to stay on Santa's Nice list?</strong></h3>
@@ -61,50 +60,58 @@
       </div>
     </div>
 
-    <div class="col-sm-2">
-    </div>
-      <div class="btn-group col-sm-4" role="group" aria-label="...">
-      <p>Indicate which list your child shoud appear on...Naughty or Nice!</p>
-      <button type="button" class="btn btn-sucess">Naughty</button>
-      <button type="button" class="btn btn-danger">Nice</button>
+    <div class="col-sm-1"></div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="btn-group" role="group" aria-label="...">
+            <p>Indicate which list your child shoud appear on...Naughty or Nice!</p>
+            <br>
+            <br>
+            <br>
+            <button type="button" class="btn btn-sucess">Naughty</button>
+            <button type="button" class="btn btn-danger">Nice</button>       
+          </div>
+        </div>
+      </div>
     </div>
 
 <br><br>
 
   <div class="row">
+
     <div class="col-sm-7">
-      <div class="panel panel-primary">
-        <!-- Task Management Panel-->
-        <div class="panel-heading" style="background-color: #04a8f4">
-          <h3 class="panel-title"><strong>Task Management</strong></h3>
-        <div class="panel-body" id="santa-section">
-          {{#each task}}
-          <!-- add delete and edit button  -->
-            <div>
-              <p>{{this.dataValues.task}}
-            </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Task Management</div>
+          <div class="panel-body">
+            <table class="table">
+              {{#each task}}
+                <div>
+                 <p>{{this.dataValues.task}}</p>
+                </div>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-sm-1"></div>
+
+    <div class="col-sm-4">
+    <!-- Wishlist Panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading">Child's Wish List</div>
+        <div class="panel-body">
+          {{#each gift}}
+          <div>
+            <p>{{this.dataValues.gift}}
+          </div>
           {{/each}}
         </div>
       </div>
     </div>
   </div>
-
-  <div class="col-sm-1"></div>
-
-  <div class="col-sm-4">
-  <!-- Wishlist Panel-->
-  <div class="panel panel-primary">
-    <div class="panel-heading" style="background-color: #04a8f4">
-      <h3 class="panel-title"><strong>Child's Wish List</strong></h3>
-        {{#each gift}}
-        <div>
-          <p>{{this.dataValues.gift}}
-        </div>
-        {{/each}}
-      </div>
-    </div>
-  </div>
-</div>
 
   <div class="row">
     <div class="col-sm-4"></div>
@@ -112,7 +119,6 @@
     </div>
   </div>
   <br><br><br>
-
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
