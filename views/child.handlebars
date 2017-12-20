@@ -65,33 +65,46 @@
       <!-- My Wishlist Panel-->
     <div class="col-sm-6">
     <br>
-      <div class="panel panel-primary">
-        <div class="panel-heading" style="background-color: #04a8f4">
-          <h3 class="panel-title"><strong>My Wish List</strong></h3>
-            {{#each gift}}
+		<div class="panel panel-primary">
+		  <div class="panel-heading" style="background-color: #04a8f4">
+		    <h3 class="panel-title">My Wish List</h3>
+		  </div>
+		  <div class="panel-body">
+		    <p>{{#each gift}}
             <div>
               <p>{{this.dataValues.gift}}
             </div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    </div>
-Naught or Nice Message box
-	<div class="row">
-		<div class="col-xs-12 text-center" id="naughtyOrNice-section">
-		<div class="panel-heading" style="background-color: #04a8f4">
-			<h2 class="panel-title">Are You Naught or Are You Nice?</h2>
-			<div class="panel-body"> insert naughy or nice message here </div>
-			
+            {{/each}}</p>
+		  </div>
 		</div>
 	</div>
+
+
+ {{!-- Naught or Nice Message box --}}
+	<div class="row">
+		<div class="col-sm-12">
+		<div class="panel panel-primary">
+		  <div class="panel-heading" style="background-color: #04a8f4">
+		    <h3 class="panel-title">Are You Naughty or Are You Nice?</h3>
+		  </div>
+		  <div class="panel-body">
+		    <p>insert naughy or nice message here </p>
+		  </div>
+		</div>
+		</div>
+	
+	 <br>
 {{!-- Row of Tasks --}}
 	<div class="row">
+
 		<div class="col-sm-6">
-			<div class="panel-heading" style="background-color: #04a8f4">
-			<h2 class="panel-title">My To-Do List</h2>
-					{{#each task}}
+		<br>
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="background-color: #04a8f4">
+					<h3 class="panel-title">My To-Do List</h3>
+				</div>
+				<div class="panel-body">
+				 					{{#each task}}
 					{{#unless completed}}
 						<div class="text-center">
 						{{this.task_name}}
@@ -103,12 +116,29 @@ Naught or Nice Message box
 						</div>
 					{{/unless}}
 					{{/each}}
+				</div>
 			</div>
 		</div>
 
-		{{!-- <div class="col-sm-2"></div> --}}
+	<div class="col-sm-6">
+	    <br>
+			<div class="panel panel-primary">
+			  <div class="panel-heading" style="background-color: #04a8f4">
+			    <h3 class="panel-title">Done</h3>
+			  </div>
+			  <div class="panel-body">
+			    {{#each tasks}}
+				{{#if completed}}
+					<input class='form-control text-center' type='text' placeholder='{{this.task_name}}' readonly>
+				{{/if}}
+				{{/each}}
+			  </div>
+			</div>
+		</div>
 
-		<div class="col-sm-6">
+
+
+{{!-- 		<div class="col-sm-6">
 			<div class="panel-heading" style="background-color: #04a8f4">
 			<h2 class="panel-title">Done</h2>
 			{{#each tasks}}
@@ -117,9 +147,9 @@ Naught or Nice Message box
 				{{/if}}
 			{{/each}}
 		</div>
-	</div>
+	</div> --}}
 </div>
-
+</div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
