@@ -16,7 +16,8 @@ font-size: 90px;
 body {
   /* padding: 30px; m commented out*/
   background-size: contain;
-  background: url(https://s-media-cache-ak0.pinimg.com/originals/b1/20/0e/b1200e864b641bef08815dd9305330bd.gif);
+/*  background: url(https://s-media-cache-ak0.pinimg.com/originals/b1/20/0e/b1200e864b641bef08815dd9305330bd.gif);
+*/ 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -63,3 +64,24 @@ html {
 /* .container {
   float:right;
 } */
+
+#loginbackground {
+  background:url('../images/login_background.jpeg') no-repeat center center;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.indexheaders {
+  color: #e9e5d9;
+  font-family: 'Risque', cursive;
+}
+
+.indexsubheader {
+  color: #e9e5d9;
+}
+
+
+
+
