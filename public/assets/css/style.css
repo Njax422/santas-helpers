@@ -25,16 +25,20 @@ h2 {
 }
 
 .red {
-  color: red;
+  color: #C0392B;
 }
 
 html {
   height: 100%;
 }
 
-.navdropdown {
+.logout {
   display: flex;
   justify-content: flex-end;
+  color: #C0392B;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Risque', cursive;
 }
 
 .image2 {
@@ -106,6 +110,14 @@ html {
   color: #e9e5d9;
 }
 
+.welcomeText {
+  color: #000000;
+  font-family: 'Bungee', cursive;
+  font-size: 30px;
+}
 
-
-
+.header-fonts {
+  color: white;
+  font-family: 'Risque', cursive;
+  text-align: center;
+}
