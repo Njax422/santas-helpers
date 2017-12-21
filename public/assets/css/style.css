@@ -67,7 +67,9 @@ html {
   border-color:#2146b7;
   background-color:
 }
-
+/* .container {
+  float:right;
+} */
 
 #loginbackground {
   background:url('../images/login_background.jpeg') no-repeat center center;
@@ -106,7 +108,6 @@ html {
 
 .indexsubheader {
   color: #e9e5d9;
-  font-size: 50px;
 }
 
 .welcomeText {
