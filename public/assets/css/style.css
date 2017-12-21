@@ -32,8 +32,8 @@ html {
   height: 100%;
 }
 
-.navdropdown {
-  display: flex;
+.nav {
+   display: flex;
   justify-content: flex-end;
 }
 
@@ -63,6 +63,7 @@ html {
   border-color:#2146b7;
   background-color:
 }
+
 /* .container {
   float:right;
 } */
