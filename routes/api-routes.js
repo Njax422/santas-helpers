@@ -1,63 +1,84 @@
 var db = require("../models");
+
+//Requires authentication to navigate dashboards
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+  res.redirect('/');
+}
+
 module.exports= function(app){
 
-	// post route for parent to create new task
-	// 	what info will they pass in (name/description/etc)
-	// 	upon submit generate token
-	app.post("/child", function(req, res) {
-			db.Task.create({
-	      task: req.body.task,
-    }).then(function(result) {
-    	console.log("/parents routing working", result);
+	// Creates new task and redirected to /tasklist for updating list
+	app.post("/child", isLoggedIn, function(req, res) {
+		db.Task.create({
+	     	task: req.body.task,
+	      	userId: req.user.id
+    	}).then(function(result) {
+    		res.redirect("/dashboard");
+    	});
+  	});
 
-  	res.render('child.handlebars', {task: result.dataValues.task});
-    });
+  	//Creates new gift in wishlist
+	app.post("/wishlist", isLoggedIn,function(req, res){
+		db.Gift.create({
+			gift: req.body.gift,
+			userId: req.user.id
+		}).then(function(result){
+    	// console.log("wishlist", result.dataValues);
+  			res.redirect("/child");
+    	});
   });
 
+	//Upon logging in, will display all wishes and lists associated with parent
+	app.get('/dashboard', isLoggedIn, function(req,res){
+		console.log(req.user.id);
+		Promise.all([
+			db.Task.findAll({
+				where: {
+				userId: req.user.id
+				}
+			}),
+			db.Gift.findAll({
+				where: {
+					userId: req.user.id
+				}
+			})
+		]).then(function(data){
+			rdata = {
+				'task': data[0],
+				'gift': data[1]
+			}
+			res.render('dashboard',rdata);
+		}).catch(function(err){
+			res.status(500);
+			res.send(err);
+		});
+	})
 
-//get route where parent can view all tasks and completed yes/no
-	//possibly two different routes for completed or not
-	//bonus: bonus checklists if completed by due date
-	// app.get("/parents", function(req, res) {
-	//     db.Tasks.findAll({
-	//     	include: [db.Tasks]
-  //   	}).then(function(result) {
-  //     res.render('file', result);
-  //   });
-  // });
-
-
-	// get(?) route to fire html link to enter magic link
-	// app.get("/", function(req, res) {
-	//     db.Tasks.findAll({
-	//     	include: [db.Tasks]
- //    	}).then(function(santasHelp_db) {
- //      res.json(result);
- //    });
- //  });
-
-	//get route for html that child sees upon login
-	// app.get("/:id", function(req, res) {
-	//     db.Tasks.findAll({
-	//     	include: [db.Tasks]
-  //   	}).then(function(santasHelp_db) {
-  //     res.json(result);
-  //   });
-  // });
-	//Michelle commented this section^ out 12/15 to
-	//keep moving forward with passport, was creating error
-	//cannot get findAll of undefined
-
-	//post route to handles adding gifts to wishlist
-	app.post("/createWishList", function(req, res) {
-	    db.Gifts.create({
-	      Gift: req.body.gift_name,
-    }).then(function(dbPost) {
-    	res.json(result);
-    });
-  });
-
-	//bonus: parent has delete and edit routes for tasks,
-	//bonus: child has delete and edit routes for wishlist gifts
+	//Upon reaching the child page, will display all wishes and lists associated with child
+	app.get('/child', isLoggedIn, function(req,res){
+		Promise.all([
+			db.Task.findAll({
+				where: {
+				userId: req.user.id
+				}
+			}),
+			db.Gift.findAll({
+				where: {
+					userId: req.user.id
+				}
+			})
+		]).then(function(data){
+			rdata = {
+				'task': data[0],
+				'gift': data[1]
+			}
+			res.render('child',rdata);
+		}).catch(function(err){
+			res.status(500);
+			res.send(err);
+		});
+	})
 
 };

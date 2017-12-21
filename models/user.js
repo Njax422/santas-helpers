@@ -1,6 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
   var User = sequelize.define('user', {
-        //note lower case user is used because that is the way passport does it
+  //note lower case user is used because that is the way passport does it
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -36,16 +36,33 @@ module.exports = function(sequelize, Sequelize) {
     status: {
       type:Sequelize.ENUM('active', 'inactive'),
       defaultValue: 'active'
+    },
+    // Adding child
+      child_1_fname: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      defaultValue: "Please Update Child's first name",
+      validate: {
+        len: [1]
+      } 
+    }, 
+    child_1_nice: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     }
   });
 
+//associations
+
     User.associate = function(models) {
-    // Associating User with child
-    // When an User is deleted, also delete any associated Posts
-    User.hasMany(models.Child, {
+    
+    User.hasMany(models.Gift, {
+      onDelete: "cascade"
+    });// Associating User with Posts
+    
+    User.hasMany(models.Task, {
       onDelete: "cascade"
     });
-    
   };
 
   return User;

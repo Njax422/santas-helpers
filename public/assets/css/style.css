@@ -1,29 +1,33 @@
-h1, h2 {
+h1 {
 font-family: 'Droid Sans', sans-serif;
 text-align: center;
 color: #2146b7;
 }
 
 h1 {
-font-size: 80px;
+font-size: 90px;
+}
+
+h2 {
+  font-size: 90px;
+}
+
+h2 {
+  font-family: 'Risque', cursive;
+ /* font-family: 'Droid Sans', sans-serif;*/
+  text-align: center;
+  color: #1E1E33;
+}
+
+.form-group {
+  color:#1E1E33;
+   font-size: 20px;
 }
 
 .red {
   color: red;
 }
 
-body {
-  /* padding: 30px; m commented out*/
-  background-size: contain;
-  background: url(https://s-media-cache-ak0.pinimg.com/originals/b1/20/0e/b1200e864b641bef08815dd9305330bd.gif);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  min-height: 100% ;
-  background-position-y: -467px; /*m added*/
-  /*background-color: red;*/
-
-}
 html {
   height: 100%;
 }
@@ -62,3 +66,46 @@ html {
 /* .container {
   float:right;
 } */
+
+#loginbackground {
+  background:url('../images/login_background.jpeg') no-repeat center center;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+
+#parentbackground {
+  background:url('../images/wood.jpeg') no-repeat center center;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+
+#childbackground {
+  background:url('../images/snow.jpeg')no-repeat center center;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+ }
+
+.indexheaders {
+  color: #e9e5d9;
+  font-family: 'Risque', cursive;
+}
+
+.dashboard {
+  color: #210808;
+  font-family: 'Risque', cursive;
+}
+
+
+.indexsubheader {
+  color: #e9e5d9;
+}
+
+
+
+

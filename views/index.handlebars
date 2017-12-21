@@ -1,39 +1,41 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center" id="top-section">
-			<img src="/assets/img/#" alt="#"/>
+<body>
+	<div id="loginbackground">
+  	<div class="container">
+		<div class="row">
+		<div class="col-xs-4"></div>
+		<div class="col-xs-8 text-center" id="top-section">
+			<h1 class="indexheaders">Welcome to Santa's Helper</h1>
+		</div>
+	</div>
 
-				<h1 class='red'>Welcome to Santa's Helper</h1>
+	<div class="row">
+		<div class="col-xs-4"></div>
+		<div class="col-xs-4 text-center" class="task">
+			<div class="form-group">
+				<div class = "col-sm-8 offset-md-2">
+					<h2 class="indexheaders indexsubheader">Sign In</h2>
+					<form id="signin" name="signin" method="post" action="signin">
+						<div class="form-group">
+							<label for="email">Email Address</label>
+							<input placeholder="Email" class="text" name="email" type="text" />
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input placeholder="Password" name="password" type="password" />
+						</div>
+						<div class="form-group">
+							<input class="btn" type="submit" value="Sign In" />
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 
-		<div class="col-xs-6 text-center" class="task">
-			<div class="form-group">
-				<div class="row">
-							<div class = "col-sm-8 offset-md-2">
-								<h3>Signin</h3>
-								<form id="signin" name="signin" method="post" action="signin">
-									<div class="form-group">
-										<label for="email">Email Address</label>
-										<input placeholder="Email" class="text" name="email" type="text" />
-									</div>
-									<div class="form-group">
-										<label for="password">Password</label>
-										<input placeholder="Password" name="password" type="password" />
-									</div>
-									<div class="form-group">
-										<input class="btn" type="submit" value="Sign In" />
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-		<section class="col-xs-6 text-center" class="task">
+		<section class="col-xs-4 text-center" class="task">
 			<div class="form-group">
 				<div class="row">
 						<div class = "col-sm-8 offset-md-2">
-							<h3>Signup</h3>
+							<h3 class="indexheaders indexsubheader">Sign Up</h3>
 							<form id="signup" name="signup" method="post" action="/signup">
 								<div class="form-group">
 									<label for="email">Email Address</label>
@@ -52,6 +54,10 @@
 									<input placeholder='Password' class="form-control" name="password" type="password" />
 								</div>
 								<div class="form-group">
+									<label for="childname">Child's name</label>
+									<input placeholder="Child's Name" class="form-control" name="child_1_fname" type="text" />
+								</div>
+								<div class="form-group">
 									<input class="btn btn-primary" type="submit" value="Sign Up" />
 								</div>
 							</form>
@@ -61,3 +67,4 @@
 		</section>
 	</div>
 </div>
+ <br><br><br><br> <br><br><br><br>

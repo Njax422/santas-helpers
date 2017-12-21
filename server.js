@@ -8,19 +8,14 @@ var session = require('express-session');
 
 var env = require('dotenv').load();
 
-
 var PORT = process.env.PORT || 8080;
 var app = express();
-
-// var server = oauth2orize.createServer();
 
 //For BodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-
 app.use(express.static("public"));
 
 //For Passport
@@ -38,11 +33,11 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //For Handlebars
-app.set('views', './views')
-
+app.set('views', './views');
 
 //Models
 var db = require("./models");
+
 //Routes
 var authRoute = require ('./routes/auth.js')(app, passport);
 
@@ -61,19 +56,8 @@ db.sequelize.sync().then(function(){
 });
 
 app.listen(PORT, function(err) {
-
-    if (!err)
-        console.log("App listening on PORT" + PORT);
-    else console.log(err)
-
+	if (!err)
+	    console.log("App listening on PORT" + PORT);
+	else console.log(err)
 });
-// db.sequelize.sync({ force: false }).then(function() {
-//-=======
-//-});
 
-
-// db.sequelize.sync({ force: true }).then(function() {
-//   app.listen(PORT, function() {
-//     console.log("App listening on PORT " + PORT);
-//   });
-// });
