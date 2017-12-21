@@ -32,8 +32,8 @@ html {
   height: 100%;
 }
 
-.navdropdown {
-  display: flex;
+.nav {
+   display: flex;
   justify-content: flex-end;
 }
 
