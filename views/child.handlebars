@@ -66,10 +66,9 @@
 					{{#each task}}
 					{{#unless completed}}
 						<div class="text-center">
-						{{this.task_name}}
 			        	{{this.task}}
-						<form method='POST' action='/api/burgers/update?_method=PUT' class='button-size'>
-							<input input type='hidden' type='text' name='id' value={{this.id}}><br>
+						<form method='POST' action='/task/update/{{this.id}}' class='button-size'>
+							<input type='hidden' type='text' name='completed' value="true"><br>
 							<button class="addtltext" type='submit'class='btn btn-default'>Complete task with button Press!</button>
 						</form>
 						</div>
@@ -83,9 +82,11 @@
 		<div class="col-sm-5">
 			<div class="panel-heading" style="background-color: #820bf9">
 			<h2 class="panel-title">Done</h2>
-			{{#each tasks}}
+			{{#each task}}
 				{{#if completed}}
-					<input class='form-control text-center' type='text' placeholder='{{this.task_name}}' readonly>
+					<div class="text-center">
+			        	{{this.task}}
+					</div>
 				{{/if}}
 			{{/each}}
 		</div>

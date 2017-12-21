@@ -58,16 +58,41 @@
         <div class="panel-heading" style="background-color:#1E1E33; border:3px solid #1E1E33">
           <h3 class="panel-title"><strong>Task Management</strong></h3>
         <div class="panel-body" id="santa-section"style="background-color:#1E1E33; border:3px solid #1E1E33">
+          <p>To do</p>
           {{#each task}}
-          <!-- add delete and edit button  -->
-            <div>
-              <p>{{this.dataValues.task}}
-            </div>
+            {{#unless completed}}
+            <!-- add delete and edit button  -->
+              <div>
+                <p>{{this.dataValues.task}}
+              </div>
+            {{/unless}}
+          {{/each}}
+          <p>Completed</p>
+          {{#each task}}
+            {{#if completed}}
+              <div class="text-center">
+                  {{this.task}}
+                <form method='POST' action='/task/update/{{this.id}}' class='button-size'>
+                  <input type='hidden' type='text' name='completed' value="false"><br>
+                  <button class="addtltext" type='submit'class='btn btn-default'>Redo task</button>
+                </form>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
 
   <div class="col-sm-1"></div>
 

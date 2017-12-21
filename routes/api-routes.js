@@ -71,8 +71,8 @@ module.exports= function(app){
 			})
 		]).then(function(data){
 			rdata = {
-				'task': data[0],
-				'gift': data[1]
+				task: data[0],
+				gift: data[1]
 			}
 			res.render('child',rdata);
 		}).catch(function(err){
@@ -81,4 +81,26 @@ module.exports= function(app){
 		});
 	})
 
+	//Marks tasks completed
+	app.post("/task/update/:id", isLoggedIn, function(req, res){
+		console.log("Task completion:", req.params.id, req.body.completed);
+		db.Task.update({
+	      	completed: req.body.completed
+    	},{
+    		where: {
+    			id: req.params.id
+    		}
+    	}).then(function(result){
+    		console.log("Testing req.body:", req.body.completed);
+    		console.log("Testing result:", result);
+    		if (req.body.completed==="true") {
+    			console.log("Testing truthy");
+    			res.redirect("/child");
+    		} else {
+    			console.log("Testing falsey");
+    			res.redirect("/dashboard");
+
+    		}
+    	});
+  	});
 };
