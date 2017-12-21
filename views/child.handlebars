@@ -7,6 +7,7 @@
       <h2 class='red'><strong>Santa's Little Helper</strong></h2>
     </div>
   </div>
+
     <!-- <button class="btn btn-primary">Logout</button> -->
 
     <div class="container">
@@ -14,79 +15,92 @@
           <a class="logout" href="/logout">Logout</a>
         </div>
 
+
 	<br><br>
-	<div class="row">
-      <div class="col-sm-6">
-        <br>
-        <div class="panel panel-primary">
-          <div class="panel-heading" style="background-color: #C0392B">
-            <h3 class="panel-title"><strong>What's on your wish list?</strong></h3>
-          </div>
-          <div class="panel-body">
-            <!-- Form to add tasks -->
-            <form method='post' action='/wishlist'>
-              <div class="form-group">
-                <label>Enter Gift:</label>
-                <input type="text" class="form-control" name='gift' id="child-gift">
-              </div>
-              <button class="btn btn-secondary" type="submit">Add Gift</button>
-            </form>
-          </div>
-        </div>
-     </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-4">
-      <!-- My Wishlist Panel-->
-      <div class="panel panel-primary">
-        <div class="panel-heading" style="background-color: #C0392B">
-          <h3 class="panel-title"><strong>My Wish List</strong></h3>
-            {{#each gift}}
-            <div>
-              <p>{{this.dataValues.gift}}
-            </div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    </div>
 
 	<div class="row">
+
 		<div class="col-sm-5">
-			<div class="panel-heading" style="background-color: #C0392B">
-			<h2 class="panel-title">My To-Do List</h2>
+	        <div class="panel">
+	          <div class="panel-heading" style="background-color: #C0392B">
+	            <h2 class="panel-title">What's on your wish list?</h2>
+	          </div>
+	          <div class="panel-body">
+	            <form method='post' action='/wishlist'>
+	              <div class="form-group">
+	                <input type="text" class="form-control" name='gift' id="child-gift">
+	              </div>
+	              <button class="btn btn-default" type="submit">Add Gift</button>
+	            </form>
+	          </div>
+	        </div>
+	     </div>
+
+		<div class="col-sm-1"></div>
+
+		<div class="col-sm-5">
+	      	<div class="panel">
+		        <div class="panel-heading" style="background-color: #C0392B">
+		          <h2 class="panel-title">My Wish List</h2>
+		        </div>
+		        <div class="panel-body">
+		            {{#each gift}}
+			            <div class="text-center">
+			            	<strong>{{this.dataValues.gift}}</strong>
+			            </div>
+			            <br>
+		            {{/each}}
+		        </div>
+	     	</div>
+	    </div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-5">
+			<div class="panel">
+				<div class="panel-heading" style="background-color: #C0392B">
+					<h2 class="panel-title">To Do</h2>
+				</div>
+				<div class="panel-body">
 					{{#each task}}
 					{{#unless completed}}
 						<div class="text-center">
-			        	{{this.task}}
-						<form method='POST' action='/task/update/{{this.id}}' class='button-size'>
-							<input type='hidden' type='text' name='completed' value="true"><br>
-							<button class="addtltext" type='submit'class='btn btn-default'>Complete task with button Press!</button>
-						</form>
+				        	<form method='POST' action='/task/update/{{this.id}}' class='button-size'>
+								<input type='hidden' type='text' name='completed' value="true">
+								<strong>{{this.task}}</strong>
+								<button class="btn btn-default" type='submit'class='btn btn-default'>Done</button>
+							</form>
+							<br>
 						</div>
 					{{/unless}}
 					{{/each}}
+				</div>
+			</div>
+		</div>
+    
+		<div class="col-sm-1"></div>
+
+		<div class="col-sm-5">
+			<div class="panel">
+				<div class="panel-heading" style="background-color: #C0392B">
+					<h2 class="panel-title">Done</h2>
+				</div>
+				<div class="panel-body">
+					{{#each task}}
+						{{#if completed}}
+							<div class="text-center">
+					        	<strong>{{this.task}}</strong>
+							</div>
+							<br>
+						{{/if}}
+					{{/each}}
+				</div>
 			</div>
 		</div>
 
-		<div class="col-sm-2"></div>
-
-		<div class="col-sm-5">
-			<div class="panel-heading" style="background-color: #C0392B">
-			<h2 class="panel-title">Done</h2>
-			{{#each task}}
-				{{#if completed}}
-					<div class="text-center">
-			        	{{this.task}}
-					</div>
-				{{/if}}
-			{{/each}}
-		</div>
-	</div>
-</div>
  <br><br><br><br>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
