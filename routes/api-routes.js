@@ -23,7 +23,7 @@ module.exports= function(app){
 	app.post("/wishlist", isLoggedIn,function(req, res){
 		db.Gift.create({
 			gift: req.body.gift,
-			userId: 1 //replace with variable of user ID
+			userId: req.user.id
 		}).then(function(result){
     	// console.log("wishlist", result.dataValues);
   			res.redirect("/child");
@@ -61,12 +61,12 @@ module.exports= function(app){
 		Promise.all([
 			db.Task.findAll({
 				where: {
-				userId: 1//res.user.ID //replace with variable of user ID
+				userId: req.user.id
 				}
 			}),
 			db.Gift.findAll({
 				where: {
-					userId: 1//res.user.ID
+					userId: req.user.id
 				}
 			})
 		]).then(function(data){
